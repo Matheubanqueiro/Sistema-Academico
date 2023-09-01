@@ -13,7 +13,9 @@ This project uses lot of stuff as:
 
 You need this script to in your database:
 ```
-CREATE TABLE IF NOT EXIST ALUNO (
+CREATE DATABASE IF NOT EXIST academico;
+
+CREATE TABLE IF NOT EXIST aluno (
     ra INT PRIMARY KEY,
     nome VARCHAR(255),
     email VARCHAR(255),
@@ -21,4 +23,12 @@ CREATE TABLE IF NOT EXIST ALUNO (
     periodo VARCHAR(50),
     datanascimento DATE
 );
+```
+Enter the ConnectionFactory and put your mysql login and password:
+```
+String login = "root";
+String senha = "Matheus@2004";
+String url = "jdbc:mysql://localhost:3306/academico";
+
+return DriverManager.getConnection(url, login, senha);
 ```
