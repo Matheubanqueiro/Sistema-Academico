@@ -11,5 +11,14 @@ This project uses lot of stuff as:
  📌 [Eclipse](https://eclipseide.org/) </br>
  📌 [Java](https://docs.oracle.com/en/java/) </br>
 
- 
- 
+You need this script to in your database:
+```
+CREATE TABLE IF NOT EXIST ALUNO (
+    ra INT PRIMARY KEY,
+    nome VARCHAR(255),
+    email VARCHAR(255),
+    endereco VARCHAR(255),
+    periodo VARCHAR(50),
+    datanascimento DATE
+);
+```
