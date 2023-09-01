@@ -1,5 +1,6 @@
-# Sistema Academico 🏫
+<img height="200px"  align="right" align="top" src="https://github.com/matheusbanqueiro/Sistema-Academico/assets/101984947/97842e28-8925-4437-b326-357565ad76b4"></a>
 
+# Sistema Java Code INSTITUTE 🏫
 
 This project uses lot of stuff as:
 
