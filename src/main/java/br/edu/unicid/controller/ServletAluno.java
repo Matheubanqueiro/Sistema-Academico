@@ -16,9 +16,7 @@ import javax.servlet.http.HttpSession;
 import br.edu.unicid.dao.AlunoDAO;
 import br.edu.unicid.model.Aluno;
 
-/**
- * Servlet implementation class ServletAluno
- */
+
 @WebServlet("/ServletAluno")
 public class ServletAluno extends HttpServlet {
 	private static final long serialVersionUID = 1L;
