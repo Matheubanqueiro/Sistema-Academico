@@ -1,4 +1,4 @@
-package br.edu.exemplo.util;
+package br.edu.unicid.util;
 
 import java.sql.*;
 
@@ -8,33 +8,29 @@ public class ConnectionFactory {
 
 		try {
 
-			// indica qual é o banco de dados que estou utilizando e seu driver
+			// indica qual � o banco de dados que estou utilizando e seu driver
 
 			Class.forName("com.mysql.jdbc.Driver");
-			
+
 			// estabelece a conexao e retorna uma conexao
 			String login = "root";
-			String senha = "";
+			String senha = "Matheus@2004";
 			String url = "jdbc:mysql://localhost:3306/academico";
 
-			return DriverManager.getConnection(url,login,senha);
-			
-
+			return DriverManager.getConnection(url, login, senha);
 
 		} catch (Exception e) {
 			throw new Exception(e.getMessage());
 		}
 	}
 
-	// fecha uma conexão de três formas: conn, stmt, rs
+	// fecha uma conex�o de tr�s formas: conn, stmt, rs
 
-	public static void closeConnection(Connection conn, Statement stmt,
-			ResultSet rs) throws Exception {
+	public static void closeConnection(Connection conn, Statement stmt, ResultSet rs) throws Exception {
 		close(conn, stmt, rs);
 	}
 
-	public static void closeConnection(Connection conn, Statement stmt)
-			throws Exception {
+	public static void closeConnection(Connection conn, Statement stmt) throws Exception {
 		close(conn, stmt, null);
 	}
 
@@ -42,8 +38,7 @@ public class ConnectionFactory {
 		close(conn, null, null);
 	}
 
-	private static void close(Connection conn, Statement stmt, ResultSet rs)
-			throws Exception {
+	private static void close(Connection conn, Statement stmt, ResultSet rs) throws Exception {
 		try {
 			if (rs != null)
 				rs.close();

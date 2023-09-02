@@ -1,4 +1,4 @@
-package br.edu.exemplo.dao;
+package br.edu.unicid.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -8,17 +8,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.exemplo.model.Aluno;
-import br.edu.exemplo.util.ConnectionFactory;
+import br.edu.unicid.model.Aluno;
+import br.edu.unicid.util.ConnectionFactory;
 
 public class AlunoDAO {
 	private Connection conn;
 	private PreparedStatement ps;
-	private ResultSet rs; 
+	private ResultSet rs;
 	private Aluno aluno;
 
 	public AlunoDAO() throws Exception {
-		// chama a classe ConnectionFactory e estabele uma conexão
+		// chama a classe ConnectionFactory e estabele uma conex�o
 		try {
 			this.conn = ConnectionFactory.getConnection();
 		} catch (Exception e) {
@@ -26,7 +26,7 @@ public class AlunoDAO {
 		}
 	}
 
-	// método de salvar
+	// m�todo de salvar
 
 	public void salvar(Aluno aluno) throws Exception {
 		if (aluno == null)
@@ -49,14 +49,13 @@ public class AlunoDAO {
 		}
 	}
 
-	// método de atualizar
+	// m�todo de atualizar
 
 	public void atualizar(Aluno aluno) throws Exception {
 		if (aluno == null)
 			throw new Exception("O valor passado nao pode ser nulo");
 		try {
-			String SQL = "UPDATE alunos set nome=?, email=?, endereco=?, datanascimento=?, "
-					+ "periodo=? WHERE ra=?";
+			String SQL = "UPDATE alunos set nome=?, email=?, endereco=?, datanascimento=?, " + "periodo=? WHERE ra=?";
 			ps = conn.prepareStatement(SQL);
 			ps.setString(1, aluno.getNome());
 			ps.setString(2, aluno.getEmail());
@@ -72,7 +71,7 @@ public class AlunoDAO {
 		}
 	}
 
-	// método de excluir
+	// m�todo de excluir
 
 	public void excluir(Aluno aluno) throws Exception {
 		if (aluno == null)
@@ -96,7 +95,7 @@ public class AlunoDAO {
 		try {
 			String SQL = "SELECT  * FROM alunos WHERE ra=?";
 			ps = conn.prepareStatement(SQL);
-			ps.setInt(1, raAluno);			
+			ps.setInt(1, raAluno);
 			rs = ps.executeQuery();
 			if (rs.next()) {
 				int ra = rs.getInt("ra");
@@ -105,7 +104,7 @@ public class AlunoDAO {
 				String endereco = rs.getString("endereco");
 				Date dataNascimento = rs.getDate("dataNascimento");
 				String periodo = rs.getString("periodo");
-				
+
 				aluno = new Aluno(ra, nome, email, endereco, dataNascimento, periodo);
 			}
 			return aluno;
@@ -115,7 +114,7 @@ public class AlunoDAO {
 			ConnectionFactory.closeConnection(conn, ps, rs);
 		}
 	}
-	
+
 	// Listar todos os alunos
 
 	public List todosAlunos() throws Exception {
@@ -140,4 +139,3 @@ public class AlunoDAO {
 		}
 	}
 }
-
