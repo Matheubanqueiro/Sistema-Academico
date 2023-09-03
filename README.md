@@ -23,6 +23,12 @@ CREATE TABLE IF NOT EXIST aluno (
     periodo VARCHAR(50),
     datanascimento DATE
 );
+CREATE TABLE IF NOT EXIST usuarios (
+    id INT AUTO INCREMENT PRIMARY KEY,
+    login VARCHAR(255),
+    senha INT
+);
+INSERT INTO usuarios (login,senha) VALUES ('matheus@javacode', '032004');
 ```
 Enter the ConnectionFactory and put your mysql login and password:
 ```
