@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Consulta Aluno | JAVA CODE</title>
+<title>Consulta Aluno | JavaCode Institute</title>
     <link rel="icon" type="image/svg+xml" href="images/icon.svg">
 
 <link

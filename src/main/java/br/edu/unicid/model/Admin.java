@@ -2,13 +2,10 @@ package br.edu.unicid.model;
 
 public class Admin {
 
-    // atributos
     private String login;
     private String senha;   
-    private String nome;
 
-    // construtor
-    public Admin(String login, String senha) {
+        public Admin(String login, String senha) {
         this.login =  login;
         this.senha = senha;
     }
