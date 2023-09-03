@@ -16,14 +16,11 @@ import javax.servlet.http.HttpSession;
 import br.edu.unicid.dao.AlunoDAO;
 import br.edu.unicid.model.Aluno;
 
-/**
- * Servlet implementation class ServletAluno
- */
+
 @WebServlet("/ServletAluno")
 public class ServletAluno extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	// metodo para conversao de String para data
 	private Date strToDate(String data) throws Exception {
 		if (data == null) {
 			return null;
@@ -48,11 +45,9 @@ public class ServletAluno extends HttpServlet {
 				aluno.setDataNascimento(strToDate(request.getParameter("txtData")));
 			}
 		} catch (Exception e) {
-			System.out.println("Erro na data");
 		}
 		try {
 			dao = new AlunoDAO();
-			// direciona para uma nova página
 			RequestDispatcher rd = null;
 			if (cmd.equalsIgnoreCase("incluir")) {
 				dao.salvar(aluno);
@@ -76,10 +71,8 @@ public class ServletAluno extends HttpServlet {
 				rd = request.getRequestDispatcher("ServletAluno?cmd=listar");
 			}
 
-			// executa a ação de direcionar para a página JSP
 			rd.forward(request, response);
 		} catch (Exception e) {
-			System.out.println("Erro ao gravar");
 		}
 
 	}

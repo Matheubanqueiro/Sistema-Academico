@@ -28,25 +28,25 @@ public class AlunoDAO {
 
 	// m�todo de salvar
 
-	public void salvar(Aluno aluno) throws Exception {
-		if (aluno == null)
-			throw new Exception("O valor passado nao pode ser nulo");
-		try {
-			String SQL = "INSERT INTO alunos (ra, nome, email, endereco, datanascimento, periodo) values "
-					+ "(?, ?, ?, ?, ?, ?)";
-			ps = conn.prepareStatement(SQL);
-			ps.setInt(1, aluno.getRa());
-			ps.setString(2, aluno.getNome());
-			ps.setString(3, aluno.getEmail());
-			ps.setString(4, aluno.getEndereco());
-			ps.setDate(5, new java.sql.Date(aluno.getDataNascimento().getTime()));
-			ps.setString(6, aluno.getPeriodo());
-			ps.executeUpdate();
-		} catch (SQLException sqle) {
-			throw new Exception("Erro ao inserir dados " + sqle);
-		} finally {
-			ConnectionFactory.closeConnection(conn, ps);
-		}
+		public void salvar(Aluno aluno) throws Exception {
+			if (aluno == null)
+				throw new Exception("O valor passado nao pode ser nulo");
+			try {
+				String SQL = "INSERT INTO alunos (ra, nome, email, endereco, datanascimento, periodo) values "
+						+ "(?, ?, ?, ?, ?, ?)";
+				ps = conn.prepareStatement(SQL);
+				ps.setInt(1, aluno.getRa());
+				ps.setString(2, aluno.getNome());
+				ps.setString(3, aluno.getEmail());
+				ps.setString(4, aluno.getEndereco());
+				ps.setDate(5, new java.sql.Date(aluno.getDataNascimento().getTime()));
+				ps.setString(6, aluno.getPeriodo());
+				ps.executeUpdate();
+			} catch (SQLException sqle) {
+				throw new Exception("Erro ao inserir dados " + sqle);
+			} finally {
+				ConnectionFactory.closeConnection(conn, ps);
+			}
 	}
 
 	// m�todo de atualizar
