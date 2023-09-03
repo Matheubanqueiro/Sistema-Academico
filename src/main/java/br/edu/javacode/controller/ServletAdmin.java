@@ -1,4 +1,4 @@
-package br.edu.unicid.controller;
+package br.edu.javacode.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 
-import br.edu.unicid.dao.AdminDAO;
-import br.edu.unicid.util.ConnectionFactory;
+import br.edu.javacode.dao.AdminDAO;
+import br.edu.javacode.util.ConnectionFactory;
 
 @WebServlet("/ServletAdmin")
 public class ServletAdmin extends HttpServlet {
@@ -40,7 +40,7 @@ public class ServletAdmin extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
             response.getWriter().println("Erro: " + e.getMessage());
-        }
+        } 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

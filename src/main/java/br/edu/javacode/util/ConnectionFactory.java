@@ -1,4 +1,4 @@
-package br.edu.unicid.util;
+package br.edu.javacode.util;
 
 import java.sql.*;
 

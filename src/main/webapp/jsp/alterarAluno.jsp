@@ -17,7 +17,7 @@
 	class="bg-black text-white min-h-screen flex items-center justify-center">
 	<div class="bg-gray-800 p-8 rounded-lg shadow-lg max-w-md w-full">
 		<jsp:useBean id="aluno" scope="session"
-			class="br.edu.unicid.model.Aluno" />
+			class="br.edu.javacode.model.Aluno" />
 		<%
 		SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
 		%>

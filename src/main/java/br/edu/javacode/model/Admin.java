@@ -1,4 +1,4 @@
-package br.edu.unicid.model;
+package br.edu.javacode.model;
 
 public class Admin {
 
