@@ -63,6 +63,17 @@
 			</svg>
 			Alterar Alunos
 		</a> 
+		<a
+					class="mt-4 border border-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg inline-flex items-center transition-transform transform hover:translate-y-1"
+					href="html/admin.html">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none"
+						viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+						class="w-5 h-5 mr-2">
+						<path stroke-linecap="round" stroke-linejoin="round"
+							d="M15.75 19.5L8.25 12l7.5-7.5" />
+					</svg>
+					Sair
+				</a>
                 </div>
            		
         </form>

@@ -5,6 +5,7 @@ public class Admin {
     // atributos
     private String login;
     private String senha;   
+    private String nome;
 
     // construtor
     public Admin(String login, String senha) {

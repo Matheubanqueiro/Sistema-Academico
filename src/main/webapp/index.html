@@ -38,22 +38,37 @@
 	</style>
 </head>
 
-<body class="bg-black text-white">
-	<nav class="py-6 flex justify-center items-center">
-		<ul class="flex space-x-6 flex justify-center items-center">
-				<a href="#quem-somos" class="nav-link">Quem Somos</a>
-				<a href="#caracteristicas" class="nav-link">Características</a>
-			<li>
-				<button onclick="window.location.href='jsp/login.jsp'" class=" hover:bg-blue-700  px-4 rounded">
-					admin
-				</button>
-			</li>
-		</ul>
+<body class="bg-black text-white mt-20">
+
+	<nav class="flex justify-between items-center fixed top-0 w-full bg-black z-10">
+		<div>
+			<img class="h-auto w-20 ml-4" src="images/icon.svg" alt="Logo" />
+		</div>
+		<div>
+			<ul class="flex space-x-6">
+				<li><a href="#quem-somos" class="nav-link">Quem Somos</a></li>
+				<li><a href="#caracteristicas" class="nav-link">Características</a></li>
+			</ul>
+		</div>
+		<div>
+			<ul class="flex space-x-6 mr-4">
+				<li>
+					<button onclick="window.location.href='jsp/login.jsp'"
+						class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+						Admin
+					</button>
+
+				</li>
+			</ul>
+		</div>
 	</nav>
+	  <div id="progress-container" class="h-2 fixed bottom-0 left-0 right-0">
+		<div id="progress" class="h-full bg-blue-500"></div>
+	</div>
 
 
-	<!-- Banner -->
 	<section id="banner" class="py-16 text-center">
+
 		<h1 class="text-4xl font-bold mb-4">BEM - VINDO(A) AO NOSSO SITE</h1>
 		<img class="mx-auto h-auto w-80 logo" src="images/logo.svg" alt="Logo" />
 	</section>
@@ -170,6 +185,12 @@
 			</p>
 		</div>
 	</footer>
+	<script>
+		window.onscroll = function() {
+			const scroll = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+			document.getElementById("progress").style.width = scroll + "%";
+		};
+	</script>	
 </body>
-
+  
 </html>
