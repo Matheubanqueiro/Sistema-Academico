@@ -1,4 +1,4 @@
-package br.edu.unicid.dao;
+package br.edu.javacode.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.unicid.model.Aluno;
-import br.edu.unicid.util.ConnectionFactory;
+import br.edu.javacode.model.Aluno;
+import br.edu.javacode.util.ConnectionFactory;
 
 public class AlunoDAO {
 	private Connection conn;
@@ -18,15 +18,12 @@ public class AlunoDAO {
 	private Aluno aluno;
 
 	public AlunoDAO() throws Exception {
-		// chama a classe ConnectionFactory e estabele uma conex�o
 		try {
 			this.conn = ConnectionFactory.getConnection();
 		} catch (Exception e) {
 			throw new Exception("erro: \n" + e.getMessage());
 		}
 	}
-
-	// m�todo de salvar
 
 		public void salvar(Aluno aluno) throws Exception {
 			if (aluno == null)
@@ -49,8 +46,6 @@ public class AlunoDAO {
 			}
 	}
 
-	// m�todo de atualizar
-
 	public void atualizar(Aluno aluno) throws Exception {
 		if (aluno == null)
 			throw new Exception("O valor passado nao pode ser nulo");
@@ -71,24 +66,20 @@ public class AlunoDAO {
 		}
 	}
 
-	// m�todo de excluir
-
-	public void excluir(Aluno aluno) throws Exception {
-		if (aluno == null)
-			throw new Exception("O valor passado nao pode ser nulo");
-		try {
-			String SQL = "DELETE FROM alunos WHERE ra = ?";
-			ps = conn.prepareStatement(SQL);
-			ps.setInt(1, aluno.getRa());
-			ps.executeUpdate();
-		} catch (SQLException sqle) {
-			throw new Exception("Erro ao excluir dados " + sqle);
-		} finally {
-			ConnectionFactory.closeConnection(conn, ps);
-		}
+	public void excluirAluno(int ra) throws Exception {
+	    try {
+	        String SQL = "DELETE FROM alunos WHERE ra=?";
+	        ps = conn.prepareStatement(SQL);
+	        ps.setInt(1, ra);
+	        ps.executeUpdate();
+	    } catch (SQLException sqle) {
+	        throw new Exception("Erro ao excluir aluno por RA: " + sqle);
+	    } finally {
+	        ConnectionFactory.closeConnection(conn, ps);
+	    }
 	}
 
-	// Procurar Aluno
+
 
 	public Aluno procurarAluno(int raAluno) throws Exception {
 
@@ -114,8 +105,6 @@ public class AlunoDAO {
 			ConnectionFactory.closeConnection(conn, ps, rs);
 		}
 	}
-
-	// Listar todos os alunos
 
 	public List todosAlunos() throws Exception {
 		try {

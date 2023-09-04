@@ -1,16 +1,19 @@
-package br.edu.unicid.dao;
+package br.edu.javacode.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import br.edu.unicid.util.ConnectionFactory;
+import br.edu.javacode.model.Admin;
+import br.edu.javacode.model.Aluno;
+import br.edu.javacode.util.ConnectionFactory;
 
 public class AdminDAO {
 	private Connection conn;
 	private PreparedStatement ps;
 	private ResultSet rs;
+	private Admin admin;
 
 	public AdminDAO() throws Exception {
 		try {
@@ -53,7 +56,22 @@ public class AdminDAO {
 	    return false;
 	}
 
-
+	public void alterar(Admin admin) throws Exception {
+		if (admin == null)
+			throw new Exception("O valor passado nao pode ser nulo");
+		try {
+			String SQL = "UPDATE usuarios set login=?, senha=?";
+			ps = conn.prepareStatement(SQL);
+			ps.setString(1, admin.getLogin());
+			ps.setString(2, admin.getSenha());
+			
+			ps.executeUpdate();
+		} catch (SQLException sqle) {
+			throw new Exception("Erro ao alterar dados " + sqle);
+		} finally {
+			ConnectionFactory.closeConnection(conn, ps);
+		}
+	}
 	
 
 }

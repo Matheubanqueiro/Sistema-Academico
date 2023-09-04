@@ -18,7 +18,7 @@
 	
 		<h2 class="text-2xl font-semibold text-center mb-6">Consulta de Aluno</h2>
 		<jsp:useBean id="aluno" scope="session"
-			class="br.edu.unicid.model.Aluno" />
+			class="br.edu.javacode.model.Aluno" />
 		<%
 		SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
 		%>

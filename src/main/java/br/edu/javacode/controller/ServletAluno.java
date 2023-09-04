@@ -1,4 +1,4 @@
-package br.edu.unicid.controller;
+package br.edu.javacode.controller;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import br.edu.unicid.dao.AlunoDAO;
-import br.edu.unicid.model.Aluno;
+import br.edu.javacode.dao.AlunoDAO;
+import br.edu.javacode.model.Aluno;
 
 
 @WebServlet("/ServletAluno")
@@ -49,6 +49,7 @@ public class ServletAluno extends HttpServlet {
 		try {
 			dao = new AlunoDAO();
 			RequestDispatcher rd = null;
+
 			if (cmd.equalsIgnoreCase("incluir")) {
 				dao.salvar(aluno);
 				rd = request.getRequestDispatcher("ServletAluno?cmd=listar");
@@ -69,6 +70,10 @@ public class ServletAluno extends HttpServlet {
 			} else if (cmd.equalsIgnoreCase("atualizar")) {
 				dao.atualizar(aluno);
 				rd = request.getRequestDispatcher("ServletAluno?cmd=listar");
+			}else if (cmd.equalsIgnoreCase("excluir")) {
+			    int ra = Integer.parseInt(request.getParameter("txtRa"));
+			    dao.excluirAluno(ra);
+			    rd = request.getRequestDispatcher("ServletAluno?cmd=listar");
 			}
 
 			rd.forward(request, response);

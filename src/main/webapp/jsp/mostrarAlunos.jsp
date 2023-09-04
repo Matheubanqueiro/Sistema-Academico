@@ -2,7 +2,7 @@
 <%@ page import="java.text.SimpleDateFormat"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.List"%>
-<%@ page import="br.edu.unicid.model.Aluno"%>
+<%@ page import="br.edu.javacode.model.Aluno"%>
 
 <!DOCTYPE html>
 <html lang="pt-br">
